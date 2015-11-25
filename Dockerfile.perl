@@ -17,4 +17,4 @@ RUN carton install --deployment
 ADD bin /app/bin
 ADD data /app/data
 
-CMD carton exec perl bin/script
+CMD carton exec perl bin/script.pl

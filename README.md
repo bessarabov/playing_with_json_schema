@@ -1,11 +1,32 @@
 # Playing with json schema
 
+## Nodejs
+
 Build:
 
-    docker build --tag tmp .
+    docker build --tag tmp_js --file="Dockerfile.node" .
 
 Run:
-    docker run --rm tmp
+
+    docker run --rm tmp_js
+
+Result:
+
+    [ { keyword: 'required',
+        dataPath: '',
+        params: { missingProperty: 'name' },
+        message: 'should have required property \'name\'' } ]
+
+And the error is what I exepect.
+
+## Perl
+
+Build:
+
+    docker build --tag tmp_perl --file="Dockerfile.perl" .
+
+Run:
+    docker run --rm tmp_perl
 
 Result:
 

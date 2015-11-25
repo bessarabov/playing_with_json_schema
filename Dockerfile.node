@@ -1,0 +1,11 @@
+FROM node:5.1.0
+
+WORKDIR /app
+ADD package.json /app/
+
+RUN npm install
+
+ADD bin /app/bin
+ADD data /app/data
+
+CMD node bin/script.js
