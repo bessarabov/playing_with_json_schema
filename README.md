@@ -34,3 +34,9 @@ Result:
     #END
 
 But I expect it to fail.
+
+## Question
+
+I've asked a question about this behavior:
+
+ * http://perlmonks.org/?node_id=1148621
