@@ -1,0 +1,19 @@
+{
+    "properties" : {
+        "name" : {
+            "type" : "string"
+        },
+        "type" : {
+            "enum" : [
+                "dog",
+                "cat"
+            ],
+            "type" : "string"
+        }
+    },
+    "required" : [
+        "name",
+        "type"
+    ],
+    "type" : "object"
+}
