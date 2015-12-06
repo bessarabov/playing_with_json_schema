@@ -15,8 +15,8 @@ use utf8;
 use open qw(:std :utf8);
 
 use Carp;
-use JSON::Schema;
 use JSON::PP;
+use JSV::Validator;
 use File::Slurp;
 
 # global vars
@@ -26,20 +26,25 @@ use File::Slurp;
 # main
 sub main {
     my $schema = read_file '/app/data/schema.json';
-    my $content = read_file '/app/data/data.json';
+    my $data = read_file '/app/data/data.json';
 
-    my $validator = JSON::Schema->new($schema);
-    my $json = decode_json($content);
-    my $result = $validator->validate($json);
+    $schema = decode_json $schema;
+    $data = decode_json $data;
+
+    my $jsv = JSV::Validator->new();
+
+    my $result = $jsv->validate($schema, $data, { throw_error => 1});
 
     if ($result) {
-        say "Valid!";
+        say 'ok';
     } else {
-        say "Errors";
-        say " - $_" foreach $result->errors;
+        say 'fail';
+
+        foreach my $error ($result->get_error()) {
+            say $error->{message};
+        }
     }
 
-    say '#END';
 }
 main();
 __END__

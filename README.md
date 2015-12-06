@@ -30,13 +30,11 @@ Run:
 
 Result:
 
-    Valid!
-    #END
-
-But I expect it to fail.
+    fail
+    The instance properties has not required properties (missing: name)
 
 ## Question
 
-I've asked a question about this behavior:
+I've asked a question:
 
  * http://perlmonks.org/?node_id=1148621
